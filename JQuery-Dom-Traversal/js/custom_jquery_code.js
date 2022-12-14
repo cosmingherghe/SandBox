@@ -8,4 +8,6 @@ $(function(){
       let info =  '<p>Author: ' + dataAuthor + '<br>Price: ' + dataPrice + '</p>';
       $(this).parent().append(info).css("font-weight","bold");
     })
+
+    
 });
