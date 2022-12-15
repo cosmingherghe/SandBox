@@ -22,7 +22,12 @@
       $("button").on("click", function(){
         //let url = "data.html div.container_data";
         let url = "data.html div:nth-child(1)";
-        $("div.main").load(url);
+        
+        // THE LOAD METHOD  ---
+        $("div.main").load(url); 
+
+        // THE AJAX METHOD ---  $.ajax(url [,options])
+       
       });
     })
   </script>
