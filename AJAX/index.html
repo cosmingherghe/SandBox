@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJAX Sandbox</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="main">
+
+    </div>
+    <button id="btn">Load Data</button>
+  </div>
+  
+  <!-- Scripts Section -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script>
+    $(function(){
+      $("button").on("click", function(){
+        //let url = "data.html div.container_data";
+        let url = "data.html div:nth-child(1)";
+        $("div.main").load(url);
+      });
+    })
+  </script>
+</body>
+</html>
