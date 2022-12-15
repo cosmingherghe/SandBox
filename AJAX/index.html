@@ -9,6 +9,7 @@
 </head>
 <body>
   <div class="container">
+    <p>Paragraph Example</p>
     <div class="main">
 
     </div>
@@ -24,7 +25,12 @@
         let url = "data.html div:nth-child(1)";
         
         // THE LOAD METHOD  ---
-        $("div.main").load(url); 
+        // $("div.main").load(url); 
+
+        // CallBack function
+        $("p").hide(4000, function(){
+          alert("Paragraph is hidden");
+        });
 
         // THE AJAX METHOD ---  $.ajax(url [,options])
        
