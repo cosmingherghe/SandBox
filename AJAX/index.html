@@ -63,17 +63,46 @@
 
 
         // json /posts/1
+        // let root = "https://jsonplaceholder.typicode.com";
+
+        // $.ajax({
+        //   url: root + '/posts/1',
+        //   dataType:"json",  // HTML ---
+        //   method: 'GET',
+        //   success: function(response){
+        //     console.log(response);
+        //     let postInfo = '<p>Body: '+ response.body +'</p>';
+        //     postInfo += '<p>Title: '+ response.title +'</p>';
+        //     $("div.main").append(postInfo);
+        //   },
+        //   error: function(request, errorType, errorMsg){
+        //     console.log("request: " + request);
+        //     console.log("errorType: " + errorType);
+        //     console.log("errorMsg: " + errorMsg);
+        //     alert("Error, have a look in console!");
+        //   }
+        // });
+
+
+        // json ARRAY
         let root = "https://jsonplaceholder.typicode.com";
 
         $.ajax({
-          url: root + '/posts/1',
+          url: root + '/comments',
+          data: {"postId": 1},
           dataType:"json",  // HTML ---
           method: 'GET',
           success: function(response){
             console.log(response);
-            let postInfo = '<p>Body: '+ response.body +'</p>';
-            postInfo += '<p>Title: '+ response.title +'</p>';
-            $("div.main").append(postInfo);
+
+            let postBody = '<p>';
+            response.forEach(e => {
+              postBody += 'Name: ' + e.name +'</br>';
+              postBody += 'Email: ' + e.email +'</br>';
+              postBody += 'Body: ' + e.body +'</p>';
+            });
+            
+            $("div.main").append(postBody);
           },
           error: function(request, errorType, errorMsg){
             console.log("request: " + request);
