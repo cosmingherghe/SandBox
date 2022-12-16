@@ -89,7 +89,7 @@
 
         $.ajax({
           url: root + '/comments',
-          data: {"postId": 1},
+          data: {"postId": 1},   //
           dataType:"json",  // HTML ---
           method: 'GET',
           success: function(response){
@@ -109,6 +109,13 @@
             console.log("errorType: " + errorType);
             console.log("errorMsg: " + errorMsg);
             alert("Error, have a look in console!");
+          },
+
+          beforeSend(){
+            // Will run before the call is made
+          },
+          complete(){
+            // Will run if the call is complete or has an error
           }
         });
 
