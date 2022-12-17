@@ -1,0 +1,10 @@
+.container {
+  width: 1000px;
+}
+div {
+  padding: 10px;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
