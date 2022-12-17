@@ -78,7 +78,6 @@
 
         $("#myInput").on("keyup", function () {
           let myInput = $(this).val().toLowerCase();
-          //console.log(myInput);
           $("tbody tr").filter(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(myInput) > -1);
           });
