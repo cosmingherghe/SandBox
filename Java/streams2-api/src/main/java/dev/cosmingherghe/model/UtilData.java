@@ -6,6 +6,7 @@ import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 import org.apache.commons.io.IOUtils;
 
@@ -24,12 +25,8 @@ public class UtilData {
     return new Gson().fromJson(json, listType);
   }
 
-  public static PersonDTO mapToPersonDTO(Person p) {
-    PersonDTO dto = PersonDTO.builder()
-        .id(p.getId())
-        .name(p.getFirstName() + " " + p.getLastName())
-        .age(p.getAge())
-        .build();
-    return dto;
-  }
+  Function<Person, PersonDTO> mapToPersonDTO = p -> new PersonDTO(
+      p.getId(),
+      p.getFirstName() + " " + p.getLastName(),
+      p.getAge());
 }
