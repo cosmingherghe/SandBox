@@ -24,9 +24,4 @@ public class UtilData {
     Type listType = TypeToken.getParameterized(ArrayList.class, clazz).getType();
     return new Gson().fromJson(json, listType);
   }
-
-  Function<Person, PersonDTO> mapToPersonDTO = p -> new PersonDTO(
-      p.getId(),
-      p.getFirstName() + " " + p.getLastName(),
-      p.getAge());
 }

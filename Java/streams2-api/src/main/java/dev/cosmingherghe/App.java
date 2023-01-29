@@ -3,6 +3,7 @@ package dev.cosmingherghe;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import dev.cosmingherghe.model.Person;
@@ -21,10 +22,14 @@ public class App {
                 .collect(Collectors.toList());
 
         // Second approach
-        List<PersonDTO> personDTOs = persons.stream()
-                .map(UtilData::mapToPersonDTO)
-                .collect(Collectors.toList());
+        Function<Person, PersonDTO> mapToPersonDTO = p -> new PersonDTO(
+                p.getId(),
+                p.getFirstName() + " " + p.getLastName(),
+                p.getAge());
 
+        List<PersonDTO> personDTOs = persons.stream()
+                .map(mapToPersonDTO)
+                .collect(Collectors.toList());
         // ------------------------------------------------------
 
         // Imperative Programming
