@@ -23,4 +23,13 @@ public class UtilData {
     Type listType = TypeToken.getParameterized(ArrayList.class, clazz).getType();
     return new Gson().fromJson(json, listType);
   }
+
+  public static PersonDTO mapToPersonDTO(Person p) {
+    PersonDTO dto = PersonDTO.builder()
+        .id(p.getId())
+        .name(p.getFirstName() + " " + p.getLastName())
+        .age(p.getAge())
+        .build();
+    return dto;
+  }
 }
