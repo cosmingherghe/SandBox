@@ -17,16 +17,12 @@ public class App {
         // Map Person to PersonDTO
         // First approach
         List<PersonDTO> personsListDTO = persons.stream()
-                .map(p -> {
-                    PersonDTO pDto = new PersonDTO(
-                            p.getId(), p.getLastName(), p.getAge());
-                    return pDto;
-                })
+                .map(p -> new PersonDTO(p.getId(), p.getLastName(), p.getAge()))
                 .collect(Collectors.toList());
 
         // Second approach
         List<PersonDTO> personDTOs = persons.stream()
-                .map(p -> UtilData.mapToPersonDTO(p))
+                .map(UtilData::mapToPersonDTO)
                 .collect(Collectors.toList());
 
         // ------------------------------------------------------
